@@ -1,0 +1,100 @@
+/* Shared controls fit beside the brand, mode menu and export action. */
+.footer-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.theme-toggle{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;padding:0;border:1px solid var(--line);background:#f9faf7;color:#555e47}
+.theme-toggle svg{width:20px;height:20px}
+@media(max-width:720px){
+ .app-footer{gap:8px}
+ .footer-identity{gap:8px}
+ .app-footer .export{min-width:104px;padding:0 12px;font-size:13px}
+ .mode-select{max-width:96px;padding-left:7px;padding-right:4px}
+}
+@media(max-width:360px){.footer-identity{gap:6px}.footer-actions{gap:6px}.app-footer{padding-left:12px;padding-right:12px}.mode-select{max-width:88px}.app-footer .export{min-width:92px;padding:0 8px}.app-footer .export svg{display:none}}
+/* The interface changes theme; artwork palettes stay independent. */
+:root[data-theme=dark]{color-scheme:dark;--ink:#edf1e7;--muted:#a5af9f;--line:#3a4237;--ui-bg:#141714;--ui-panel:#202520;--ui-field:#272d26;--ui-text:#edf1e7;--ui-secondary:#b8c2b0}
+:root[data-theme=dark] body{background:var(--ui-bg);color:var(--ui-text)}
+:root[data-theme=dark] aside,:root[data-theme=dark] .app-footer,:root[data-theme=dark] dialog{background:var(--ui-panel);color:var(--ui-text);border-color:var(--line)}
+:root[data-theme=dark] .workspace{background:#191d19;border-color:var(--line);box-shadow:0 3px 12px #0003}
+:root[data-theme=dark] .footer-brand{color:var(--ui-text)}
+:root[data-theme=dark] .tabs{background:#30372d}
+:root[data-theme=dark] .tabs button{color:var(--ui-secondary)}
+:root[data-theme=dark] .tabs button.active{background:#48523e;color:#f5f8ef;box-shadow:none}
+:root[data-theme=dark] .tabs button:disabled{color:#77806e}
+:root[data-theme=dark] .editor-shortcut,:root[data-theme=dark] .mode-select,:root[data-theme=dark] textarea,:root[data-theme=dark] .select-words,:root[data-theme=dark] .acro-sheet input[type=text],:root[data-theme=dark] .theme-toggle{background:var(--ui-field);border-color:var(--line);color:var(--ui-text)}
+:root[data-theme=dark] .shortcut-label,:root[data-theme=dark] .shortcut-summary,:root[data-theme=dark] .text-button,:root[data-theme=dark] .adjustment label,:root[data-theme=dark] .type-heading,:root[data-theme=dark] .format-label,:root[data-theme=dark] .acro-field-label{color:var(--ui-secondary)}
+:root[data-theme=dark] .field-foot,:root[data-theme=dark] .soup-question-heading,:root[data-theme=dark] .soup-answer-marker,:root[data-theme=dark] .soup-result-label{color:#a5af9f}
+:root[data-theme=dark] .format-label select{background:var(--ui-field);color:var(--ui-text)}
+:root[data-theme=dark] input[type=range]{accent-color:#b8cd89}
+:root[data-theme=dark] .sheet-handle span{background:#818b7b}
+:root[data-theme=dark] .editor-sheet::backdrop{background:#0008}
+:root[data-theme=dark] .soup-editor .text-button,:root[data-theme=dark] .acro-toolbar .text-button,:root[data-theme=dark] .soup-puzzle-row{background:var(--ui-field);border-color:var(--line);color:var(--ui-secondary)}
+:root[data-theme=dark] .soup-answers .soup-answer{background:var(--ui-field);border-color:var(--line);color:var(--ui-text)}
+:root[data-theme=dark] .soup-answers .soup-answer.is-wrong{background:#252a23;color:#919a88}
+:root[data-theme=dark] .soup-answers .soup-answer.is-correct,:root[data-theme=dark] .soup-puzzle-row.active,:root[data-theme=dark] .char.selected{background:#bace88;border-color:#bace88;color:#253012}
+:root[data-theme=dark] .soup-editor .soup-next{background:#39472f;border-color:#536546;color:#e3efcc}
+:root[data-theme=dark] .soup-editor .soup-next:disabled{background:#272d26;border-color:#353d30;color:#8a9480}
+:root[data-theme=dark] .soup-editor .text-button:hover:not(:disabled),:root[data-theme=dark] .soup-puzzle-row:hover:not(.active){background:#35402e;border-color:#64734f;color:#e6efdb}
+:root[data-theme=dark] .soup-editor .soup-result p{color:var(--ui-secondary)}
+:root[data-theme=dark] .acro-line-prefix{color:#91bee6}
+:root[data-theme=dark] .acro-sheet input:focus{border-color:var(--line)}
+:root[data-theme=dark] .palette.active::after{background:#c8d7b7}
+:root[data-theme=dark] .app-footer .export{background:#d5e5a6;color:#26311f}
+:root[data-theme=dark] .app-footer .export:hover{background:#e1edbe}
+:root[data-theme=dark] .toast{background:#d5e5a6;color:#26311f}
+:root[data-theme=dark] .overflow-notice{color:#ebbb8b}
+:root[data-theme=dark] input::placeholder,:root[data-theme=dark] textarea::placeholder{color:#909a86}
+:root[data-theme=dark] .result-line{border-color:var(--line);color:var(--ui-secondary)}
+:root[data-theme=dark] .result-line strong{color:var(--ui-text)}
+:root[data-theme=dark] .settings,:root[data-theme=dark] .settings select,:root[data-theme=dark] .texture-label,:root[data-theme=dark] .hint{color:var(--ui-secondary)}
+:root[data-theme=dark] .char:hover:not(.selected){background:#48523e;color:#f5f8ef}
+
+/* Equal side columns keep the segmented control on the page centerline. */
+.preview-head{--toolbar-height:44px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-column:1 / -1;gap:8px;width:100%;min-height:68px;padding:12px 24px;background:#f0f1eb;position:sticky;top:0;z-index:11}
+.toolbar-brand{justify-self:start;min-width:0}
+.toolbar-actions{justify-self:end;display:flex;align-items:center;gap:6px;min-width:0}
+.preview-head .tabs{justify-self:center;min-width:0;height:var(--toolbar-height);padding:3px;border-radius:44px;white-space:nowrap}
+.preview-head .tabs button{height:38px;min-height:38px;padding:6px 12px;flex:0 0 auto;border-radius:44px}
+.preview-head .mode-select,.preview-head .theme-toggle{height:var(--toolbar-height);min-height:var(--toolbar-height);border-radius:44px!important;box-sizing:border-box}
+.preview-head .theme-toggle{width:var(--toolbar-height);flex:0 0 var(--toolbar-height)}
+.preview-head .mode-select{width:94px;max-width:94px;--mode-arrow-right:8px;--mode-arrow-size:12px;appearance:none;-webkit-appearance:none;padding:6px 22px 6px 10px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' fill='none' stroke='%238d9784' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right var(--mode-arrow-right) center;background-size:var(--mode-arrow-size)}
+.export-scale-label{display:flex;align-items:center;gap:10px;color:#555e47;font-size:14px}
+.export-scale-label .mode-select{min-width:70px;min-height:44px}
+:root[data-theme=dark] .export-scale-label{color:var(--ui-secondary)}
+:root[data-theme=dark] .preview-head{background:#191d19}
+@media(max-width:720px){
+ .preview-head{min-height:60px;padding:8px 14px;gap:4px}
+ .workspace{top:60px}
+ .toolbar-actions{gap:4px}
+ .preview-head .footer-brand{font-size:16px;letter-spacing:1px}
+ .preview-head .mode-select{width:64px;max-width:64px;font-size:11px;padding:6px 18px 6px 6px;--mode-arrow-right:5px;--mode-arrow-size:10px}
+ .preview-head .tabs button{font-size:11px;padding:6px 4px}
+ .preview-head .soup-tabs button{position:relative}
+ .preview-head .soup-tabs button span{position:absolute;top:2px;right:2px;font-size:8px;line-height:1}
+}
+@media(max-width:360px){
+ .preview-head{padding-left:10px;padding-right:10px;gap:2px}
+ .preview-head .footer-brand{font-size:15px}
+ .preview-head .mode-select{width:56px;max-width:56px;font-size:10px}
+ .preview-head .tabs button{font-size:10px;padding:6px 3px}
+}
+
+:root[data-theme=dark] .preview-head .mode-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m3 4.5 3 3 3-3' fill='none' stroke='%238d9784' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right var(--mode-arrow-right) center;background-size:var(--mode-arrow-size)}
+
+/* Mobile brand opens the mode menu; equal sides reserve room for centered tabs. */
+.brand-mode-trigger,.brand-mode-menu{display:none}
+@media(max-width:720px){
+ .preview-head{grid-template-columns:64px minmax(0,1fr) 64px;gap:4px;padding:8px 12px;min-height:60px}
+ .toolbar-brand{position:relative;width:64px}
+ .toolbar-brand>.footer-brand,.toolbar-actions>#modeSelect{display:none}
+ .brand-mode-trigger{display:flex;align-items:center;justify-content:center;gap:2px;width:64px;height:44px;padding:0;border:0;border-radius:44px;background:transparent;color:var(--ink);font-size:18px;font-weight:500;letter-spacing:0}
+ .brand-mode-trigger svg{width:14px;height:14px;flex:0 0 14px}
+ .toolbar-actions{width:64px;justify-content:flex-end}
+ .preview-head .tabs{width:100%;max-width:240px;justify-self:center;display:flex}
+ .preview-head .tabs button{flex:1 1 0;min-width:0;padding:6px 0;font-size:14px}
+ .brand-mode-menu:not([hidden]){display:flex;flex-direction:column;position:absolute;top:52px;left:0;width:220px;max-width:calc(100vw - 24px);padding:8px;background:#f0f1eb;color:var(--ink);border:1px solid var(--line);border-radius:28px;box-shadow:0 12px 30px #0002;z-index:20}
+ .brand-mode-menu a{display:flex;align-items:center;min-height:44px;padding:8px 16px;border-radius:44px;text-decoration:none;color:inherit;font-size:16px}
+ .brand-mode-menu a[aria-current=page]{background:#d1d9bd}
+ .brand-mode-menu a:hover{background:#e1e4d8}
+ :root[data-theme=dark] .brand-mode-menu{background:#202520}
+ :root[data-theme=dark] .brand-mode-menu a[aria-current=page]{background:#48523e}
+ :root[data-theme=dark] .brand-mode-menu a:hover{background:#30372d}
+}
